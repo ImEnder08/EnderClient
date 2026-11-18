@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ender Client</title>
+  <meta name="description" content="Ender Client: launcher e mod per Minecraft. 44 moduli per PvP, HUD e grafica, 36 cosmetici che vedono tutti, amici e chat in gioco. Dalla 1.20.1 alla 26.3.">
+  <meta name="theme-color" content="#05040b">
+  <meta property="og:title" content="Ender Client">
+  <meta property="og:description" content="Launcher + mod per Minecraft: moduli, cosmetici, amici e un look tutto nuovo.">
+  <meta property="og:image" content="assets/logo-glow.jpg">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800;900&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<a class="skip" href="#novita">Vai ai contenuti</a>
+<canvas class="sky" id="sky" aria-hidden="true"></canvas>
+<div class="nebula" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- ================================================================ NAV -->
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="#top" aria-label="Ender Client, torna in cima">
+      <img src="assets/logo.png" alt="" width="30" height="30">
+      <span>Ender<b>Client</b></span>
+    </a>
+    <nav class="nav__links" id="nav-links" aria-label="Sezioni">
+      <a href="#novita">Novità</a>
+      <a href="#cosmetici">Cosmetici</a>
+      <a href="#moduli">Moduli</a>
+      <a href="#launcher">Launcher</a>
+      <a href="#versioni">Versioni</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav__cta">
+      <a class="btn btn--ghost btn--sm hide-sm" href="https://discord.gg/J4U7Adq5ZN" target="_blank" rel="noopener"><i class="ic" data-icon="discord"></i>Discord</a>
+      <a class="btn btn--primary btn--sm" href="#scarica"><i class="ic" data-icon="download"></i>Scarica</a>
+      <button class="nav__burger" id="nav-burger" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================================================================ HERO -->
+<section class="hero">
+  <div class="wrap hero__in">
+    <div class="hero__text">
+      <a class="pill reveal" href="#novita"><span class="pill__dot"></span><b>Nuovo</b> Amici, guardaroba e nuovo look <i class="ic" data-icon="arrowR"></i></a>
+      <h1 class="hero__title reveal">Minecraft,<br><span class="grad">fuori orbita.</span></h1>
+      <p class="hero__lead reveal">Launcher e mod in un'unica app: 44 moduli per PvP, HUD e grafica, cosmetici che vedono anche gli altri, amici e chat direttamente in gioco. Dalla 1.20.1 alla 26.3.</p>
+      <div class="hero__actions reveal">
+        <a class="btn btn--primary btn--lg" href="#scarica"><i class="ic" data-icon="windows"></i>Scarica per Windows</a>
+        <a class="btn btn--ghost btn--lg" href="#cosmetici"><i class="ic" data-icon="hanger"></i>Prova i cosmetici</a>
+      </div>
+      <ul class="stats reveal" aria-label="In breve">
+        <li><b data-count="44">44</b><span>moduli</span></li>
+        <li><b data-count="36">36</b><span>cosmetici</span></li>
+        <li><b data-count="9">9</b><span>emote</span></li>
+        <li><b data-count="7">7</b><span>versioni</span></li>
+      </ul>
+    </div>
+
+    <div class="hero__stage reveal" id="hero-stage">
+      <div class="orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="portal" aria-hidden="true"></div>
+      <canvas id="hero-viewer" aria-label="Il personaggio di Ender Client con i cosmetici addosso. Trascina per girarlo."></canvas>
+      <div class="hero__look" id="hero-look" aria-live="polite">
+        <span class="hero__look-label">Indossa</span>
+        <b id="hero-look-name">Set NewOrder</b>
+      </div>
+      <div class="hero__dots" id="hero-dots" role="group" aria-label="Cambia look"></div>
+    </div>
+  </div>
+  <a class="scrollcue" href="#novita" aria-label="Scorri alle novità"><span></span></a>
+</section>
+
+<!-- ================================================================ MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track" id="marquee"></div>
+</div>
+
+<!-- ================================================================ NOVITA -->
+<section class="section" id="novita">
+  <div class="wrap">
+    <div class="head head--center reveal">
+      <p class="eyebrow">Novità di novembre</p>
+      <h2>Tre aggiornamenti in uno.<br><span class="grad">Il più grande di sempre.</span></h2>
+    </div>
+
+    <!-- guardaroba -->
+    <article class="feature reveal">
+      <div class="feature__text">
+        <span class="tag"><i class="ic" data-icon="hanger"></i>Guardaroba</span>
+        <h3>Vestiti come vuoi.<br>E fatti vedere.</h3>
+        <p>Mantelli animati, ali che battono, aureole, bandane, pet che ti seguono ed extra attorno al corpo. Quello che indossi lo vedono anche gli altri giocatori con Ender Client.</p>
+        <ul class="ticks">
+          <li><b>36 cosmetici</b>, tutti gratis per ora</li>
+          <li>Set <b>NewOrder</b>: galassia bianca col logo</li>
+          <li><b>Mini te</b>, un peluche con la tua skin</li>
+          <li>Anche nel launcher, con l'anteprima 3D</li>
+        </ul>
+        <a class="link" href="#cosmetici">Provali qui sotto <i class="ic" data-icon="arrowR"></i></a>
+      </div>
+      <div class="feature__media shots" data-tilt>
+        <img class="shot shot--back" src="assets/news/wardrobe_launcher.jpg" alt="Il guardaroba nel launcher, con l'anteprima 3D del personaggio" loading="lazy">
+        <img class="shot shot--front" src="assets/news/wardrobe_game.jpg" alt="Il guardaroba in gioco, scheda Pet" loading="lazy">
+      </div>
+    </article>
+
+    <!-- amici -->
+    <article class="feature feature--flip reveal">
+      <div class="feature__text">
+        <span class="tag"><i class="ic" data-icon="users"></i>Amici e chat</span>
+        <h3>I tuoi amici,<br>sempre a un tasto.</h3>
+        <p>Una lista amici dentro Minecraft e nel launcher. Vedi chi è online e su che server gioca, scrivi in privato o crea un gruppo, senza uscire dalla partita.</p>
+        <ul class="ticks">
+          <li><b>Gruppi</b> fino a 10 persone, con nome e icona</li>
+          <li><b>Soprannomi</b> che vedi solo tu</li>
+          <li><b>Notifiche</b> in basso a destra, col suono che vuoi</li>
+          <li>Tasto <kbd>O</kbd> in gioco, o la voce Amici nel launcher</li>
+        </ul>
+      </div>
+      <div class="feature__media shots" data-tilt>
+        <img class="shot shot--back" src="assets/news/friends_launcher.jpg" alt="La lista amici nel launcher, con una chat aperta" loading="lazy">
+        <img class="shot shot--front" src="assets/news/friends_game.jpg" alt="La lista amici in gioco, con una chat aperta" loading="lazy">
+        <div class="toastdemo" id="toastdemo" aria-hidden="true">
+          <span class="toastdemo__av"></span>
+          <span class="toastdemo__body"><b>ImEnder08</b><span id="toastdemo-msg">ci sei? entra in bedwars</span></span>
+        </div>
+      </div>
+    </article>
+
+    <!-- look -->
+    <article class="feature reveal">
+      <div class="feature__text">
+        <span class="tag"><i class="ic" data-icon="sparkle"></i>Nuovo look</span>
+        <h3>Ogni menu<br>è un cielo stellato.</h3>
+        <p>Via la terra di Minecraft: menu principale, liste di mondi e server, opzioni e caricamento sono a tema spazio, col colore che scegli tu. Nel menu principale le costellazioni si collegano al mouse, come qui.</p>
+        <ul class="ticks">
+          <li>Colori presi dal tuo <b>accento</b>, anche RGB</li>
+          <li>Il <b>caricamento</b> riempie di luce il logo</li>
+          <li><b>Shift destro</b>: guardaroba, Settings, amici e Sposta HUD</li>
+          <li>Scritte nitide a ogni grandezza</li>
+        </ul>
+      </div>
+      <div class="feature__media shots" data-tilt>
+        <img class="shot shot--back" src="assets/news/menu.jpg" alt="Il menu principale di Ender Client a tema spazio" loading="lazy">
+        <img class="shot shot--front shot--small" src="assets/news/hub.jpg" alt="L'hub di Shift destro sopra il mondo" loading="lazy">
+      </div>
+    </article>
+
+    <div class="minis">
+      <article class="mini reveal">
+        <div class="mini__art mini__art--capes" aria-hidden="true">
+          <canvas data-cape="galaxy" width="40" height="64"></canvas>
+          <canvas data-cape="neworder" width="40" height="64"></canvas>
+          <canvas data-cape="flames" width="40" height="64"></canvas>
+        </div>
+        <h4>36 cosmetici</h4>
+        <p>Mantelli animati, ali, aureole, bandane, pet ed extra. Li vedono anche gli altri giocatori con Ender Client.</p>
+      </article>
+      <article class="mini reveal">
+        <div class="mini__art mini__art--emote" aria-hidden="true"><span class="wheel"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+        <h4>9 emote con la ruota</h4>
+        <p>Tieni premuto <kbd>B</kbd> e scegli: Loser, Griddy, Twerk, Dab e altre. Le vedono anche gli altri.</p>
+      </article>
+      <article class="mini reveal">
+        <div class="mini__art mini__art--bell" aria-hidden="true"><i class="ic ic--xl" data-icon="bell"></i></div>
+        <h4>Notifiche col ding</h4>
+        <p>Entrano da destra quando ti scrivono. Scegli se mostrarle, se suonare e con quale suono.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ COSMETICI -->
+<section class="section section--wide" id="cosmetici">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Showcase</p>
+      <h2>Provali addosso.<br><span class="grad">Prima di entrare in gioco.</span></h2>
+      <p class="head__lead">Gli stessi modelli e le stesse animazioni della mod. Scegli dalle categorie, gira il personaggio trascinandolo, oppure mettici sopra la tua skin.</p>
+    </div>
+
+    <div class="studio reveal" id="studio">
+      <div class="studio__stage" id="studio-stage">
+        <div class="studio__ring" aria-hidden="true"></div>
+        <canvas id="studio-viewer" aria-label="Anteprima 3D dei cosmetici. Trascina per girare il personaggio."></canvas>
+        <div class="studio__top">
+          <form class="skinform" id="skin-form" autocomplete="off">
+            <i class="ic" data-icon="user"></i>
+            <input id="skin-name" type="text" maxlength="16" placeholder="La tua skin: nome Minecraft" aria-label="Nome Minecraft per caricare la tua skin" spellcheck="false">
+            <button type="submit" class="btn btn--primary btn--xs">Usa</button>
+          </form>
+        </div>
+        <div class="studio__bottom">
+          <div class="seg" id="studio-anim" role="group" aria-label="Animazione">
+            <button type="button" data-anim="idle" class="is-on">Fermo</button>
+            <button type="button" data-anim="walk">Cammina</button>
+            <button type="button" data-anim="run">Corre</button>
+          </div>
+          <button type="button" class="btn btn--ghost btn--xs" id="studio-spin" aria-pressed="true"><i class="ic" data-icon="rotate"></i>Gira</button>
+        </div>
+        <p class="studio__status" id="studio-status" role="status"></p>
+      </div>
+
+      <div class="studio__panel">
+        <div class="sets" id="studio-sets" role="group" aria-label="Set pronti"></div>
+        <div class="tabs" id="studio-tabs" role="tablist" aria-label="Categorie"></div>
+        <div class="cards" id="studio-cards" role="listbox" aria-label="Cosmetici"></div>
+        <div class="studio__foot">
+          <span class="wearing" id="studio-wearing"></span>
+          <button type="button" class="link" id="studio-clear">Togli tutto</button>
+        </div>
+      </div>
+    </div>
+    <p class="credits">Modelli dei pet Draghetto, Cagnolino, Gattino e Volpe bianca da <a href="https://cosmetica.cc" target="_blank" rel="noopener">Cosmetica</a> (thepanther2, Rapidking, lisv11, Bitslayn).</p>
+  </div>
+</section>
+
+<!-- ================================================================ MODULI -->
+<section class="section" id="moduli">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">La mod</p>
+      <h2>44 moduli.<br><span class="grad">Accendi solo quelli che ti servono.</span></h2>
+      <p class="head__lead">Tutti nel menu di gioco, ognuno con la sua pagina di impostazioni. Apri una card per vedere cosa puoi regolare.</p>
+    </div>
+    <div class="modbar reveal">
+      <div class="seg seg--cats" id="mod-cats" role="group" aria-label="Categorie"></div>
+      <label class="search">
+        <i class="ic" data-icon="search"></i>
+        <input id="mod-search" type="search" placeholder="Cerca un modulo" autocomplete="off" aria-label="Cerca un modulo">
+        <kbd>/</kbd>
+      </label>
+    </div>
+    <div class="mods" id="mods"></div>
+    <p class="mods__empty" id="mods-empty" hidden>Nessun modulo trovato. Prova con zoom, hud o cuori.</p>
+  </div>
+</section>
+
+<!-- ================================================================ LAUNCHER -->
+<section class="section" id="launcher">
+  <div class="wrap">
+    <div class="launcher">
+      <div class="launcher__text reveal">
+        <p class="eyebrow">Il launcher</p>
+        <h2>Tutto Minecraft,<br><span class="grad">in una finestra.</span></h2>
+        <p class="head__lead">Versioni, istanze, mod, account, amici e guardaroba. Scegli una versione Ender, premi Avvia e la mod si installa da sola.</p>
+        <ul class="lfeats" id="lfeats"></ul>
+      </div>
+      <div class="window reveal" data-tilt>
+        <div class="window__bar"><i></i><i></i><i></i><span id="window-title">Amici</span></div>
+        <div class="window__screens" id="window-screens">
+          <img src="assets/news/friends_launcher.jpg" alt="Pagina Amici del launcher" class="is-on" data-title="Amici" loading="lazy">
+          <img src="assets/news/wardrobe_launcher.jpg" alt="Pagina Guardaroba del launcher" data-title="Guardaroba" loading="lazy">
+        </div>
+        <div class="window__tabs" id="window-tabs"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ VERSIONI -->
+<section class="section" id="versioni">
+  <div class="wrap">
+    <div class="head head--center reveal">
+      <p class="eyebrow">Versioni</p>
+      <h2>Una mod. <span class="grad">Sette versioni.</span></h2>
+      <p class="head__lead">Il launcher sceglie da solo la build giusta. E avvia qualsiasi altra versione, Vanilla, Fabric o Forge.</p>
+    </div>
+    <div class="constel reveal" id="constel" role="list" aria-label="Versioni con la mod Ender"></div>
+    <p class="constel__note reveal" id="constel-note">In arrivo: la mod per la <b>1.8.9</b>, per il PvP classico.</p>
+  </div>
+</section>
+
+<!-- ================================================================ CHANGELOG -->
+<section class="section" id="changelog">
+  <div class="wrap wrap--mid">
+    <div class="head reveal">
+      <p class="eyebrow">Changelog</p>
+      <h2>Cosa è cambiato.</h2>
+    </div>
+    <ol class="log" id="log"></ol>
+    <button type="button" class="btn btn--ghost btn--sm log__more" id="log-more">Mostra tutto</button>
+  </div>
+</section>
+
+<!-- ================================================================ FAQ -->
+<section class="section" id="faq">
+  <div class="wrap wrap--mid">
+    <div class="head head--center reveal">
+      <p class="eyebrow">FAQ</p>
+      <h2>Domande frequenti</h2>
+    </div>
+    <div class="faq reveal">
+      <details open>
+        <summary>Su quali versioni funziona la mod?</summary>
+        <p>1.20.1, 1.20.4, 1.21.1, 1.21.4, 1.21.11, 26.2 e 26.3, con Fabric. Il launcher sceglie da solo la build giusta e avvia anche qualsiasi altra versione, Vanilla, Fabric o Forge.</p>
+      </details>
+      <details>
+        <summary>I cosmetici li vedono anche gli altri?</summary>
+        <p>Sì, li vedono tutti i giocatori che usano Ender Client, su qualsiasi server. Chi non ha Ender Client vede il tuo personaggio normale.</p>
+      </details>
+      <details>
+        <summary>I cosmetici si pagano?</summary>
+        <p>Per ora sono tutti gratis. Li scegli dal guardaroba in gioco (tasto U) o dal launcher, e quello che scegli da una parte lo indossi anche dall'altra.</p>
+      </details>
+      <details>
+        <summary>Come aggiungo un amico?</summary>
+        <p>Apri la lista amici col tasto O in gioco, o dalla voce Amici del launcher, e scrivi il suo nome. Quando accetta la richiesta vedete chi è online, dove gioca, e potete scrivervi.</p>
+      </details>
+      <details>
+        <summary>I messaggi restano salvati?</summary>
+        <p>Quelli letti si cancellano dopo 7 giorni. Quelli non letti restano finché non li leggi, al massimo 30 giorni.</p>
+      </details>
+      <details>
+        <summary>Posso usarlo sui server?</summary>
+        <p>Sì, i moduli lavorano sul tuo client. Ogni server ha le sue regole sulle mod: controllale prima di giocare.</p>
+      </details>
+      <details>
+        <summary>Come apro il menu in gioco?</summary>
+        <p>Con Shift destro: si apre l'hub con Settings (i moduli), guardaroba, amici e Sposta HUD. Il tasto si cambia nei controlli di Minecraft.</p>
+      </details>
+      <details>
+        <summary>Serve un account Minecraft?</summary>
+        <p>Per giocare online sì: si accede con Microsoft e si possono tenere più account. Senza account c'è la modalità Demo.</p>
+      </details>
+      <details>
+        <summary>Come si attiva la licenza?</summary>
+        <p>Al primo avvio il launcher mostra il codice del tuo PC. Lo mandi a un amministratore, che attiva la licenza, e poi clicchi Riprova.</p>
+      </details>
+    </div>
+    <p class="faq__more reveal">Non trovi la risposta? <a class="link" href="https://discord.gg/J4U7Adq5ZN" target="_blank" rel="noopener">Chiedi sul Discord</a></p>
+  </div>
+</section>
+
+<!-- ================================================================ SCARICA -->
+<section class="cta" id="scarica">
+  <div class="wrap cta__in reveal">
+    <div class="cta__logo" aria-hidden="true"><img src="assets/logo.png" alt="" width="180" height="180"></div>
+    <h2>Pronto al decollo?</h2>
+    <p>Scarica il launcher, accedi e avvia una versione Ender. La mod si installa da sola.</p>
+    <div class="cta__actions">
+      <a class="btn btn--primary btn--xl" href="https://github.com/ImEnder08/ender-client-releases/releases/latest" target="_blank" rel="noopener"><i class="ic" data-icon="windows"></i>Scarica per Windows</a>
+      <a class="btn btn--ghost btn--xl" href="https://discord.gg/J4U7Adq5ZN" target="_blank" rel="noopener"><i class="ic" data-icon="discord"></i>Entra nel Discord</a>
+    </div>
+    <ul class="reqs" aria-label="Cosa serve">
+      <li><i class="ic" data-icon="windows"></i>Windows 64 bit</li>
+      <li><i class="ic" data-icon="login"></i>Account Microsoft o Demo</li>
+      <li><i class="ic" data-icon="memory"></i>Java scelto in automatico</li>
+      <li><i class="ic" data-icon="lock"></i>Licenza attiva sul PC</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <div class="foot__brand">
+      <a class="brand" href="#top"><img src="assets/logo.png" alt="" width="26" height="26"><span>Ender<b>Client</b></span></a>
+      <p>Launcher e mod per Minecraft.</p>
+    </div>
+    <nav class="foot__col" aria-label="Prodotto"><b>Prodotto</b><a href="#novita">Novità</a><a href="#cosmetici">Cosmetici</a><a href="#moduli">Moduli</a><a href="#launcher">Launcher</a></nav>
+    <nav class="foot__col" aria-label="Aiuto"><b>Aiuto</b><a href="#faq">FAQ</a><a href="#changelog">Changelog</a><a href="https://discord.gg/J4U7Adq5ZN" target="_blank" rel="noopener">Discord</a></nav>
+    <nav class="foot__col" aria-label="Download"><b>Download</b><a href="https://github.com/ImEnder08/ender-client-releases/releases/latest" target="_blank" rel="noopener">Ultima versione</a><a href="https://github.com/ImEnder08/ender-client-releases/releases" target="_blank" rel="noopener">Tutte le versioni</a></nav>
+  </div>
+  <div class="wrap foot__legal">
+    <p>&copy; 2026 Ender Client · ImEnder08. Non affiliato a Mojang o Microsoft. Minecraft è un marchio di Mojang AB.</p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/site.js"></script>
+<script src="js/vendor/three.min.js" defer></script>
+<script src="js/vendor/skinview3d.bundle.js" defer></script>
+<script src="js/assets-inline.js" defer></script>
+<script src="js/cosmetics-core.js" defer></script>
+<script src="js/showcase.js" defer></script>
+</body>
+</html>
